@@ -33,6 +33,11 @@ app.get("/compose", function(req, res){
   res.render("compose");
 });
 
+app.get("/posts/:postId", function(req, res) {
+  const index = req.params.postId;
+  res.render("post",{blogPost:blogPosts[index]});
+});
+
 app.post("/compose", function(req, res){
   const blogPost = {
     title: req.body.title,
